@@ -1,0 +1,5 @@
+= Micronaut: Basics
+
+This module demonstrates the basics of implementing and testing Micronaut
+applications.
+
