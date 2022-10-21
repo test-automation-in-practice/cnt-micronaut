@@ -25,7 +25,6 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
     kaptTest("io.micronaut:micronaut-inject-java")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.1")
     testImplementation("io.micronaut.test:micronaut-test-rest-assured")
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
