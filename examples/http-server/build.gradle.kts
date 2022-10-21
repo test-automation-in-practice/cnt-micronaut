@@ -9,7 +9,7 @@ plugins {
 version = "0.1"
 group = "example.micronaut"
 
-val kotlinVersion = project.properties.get("kotlinVersion")
+val kotlinVersion = project.properties ["kotlinVersion"]
 repositories {
     mavenCentral()
 }
@@ -33,6 +33,7 @@ dependencies {
 
 allOpen {
     annotation("jakarta.inject.Singleton")
+    annotation("io.micronaut.http.annotation.Controller")
 }
 
 application {

@@ -7,11 +7,6 @@ data class BookRepresentation(
     val id: UUID,
     val title: String,
     val isbn: String
-)
-
-fun BookRecord.toRepresentation() =
-    BookRepresentation(
-        id = id,
-        title = book.title,
-        isbn = book.isbn
-    )
+) {
+    constructor(bookRecord: BookRecord) : this (bookRecord.id, bookRecord.book.title, bookRecord.book.isbn)
+}
