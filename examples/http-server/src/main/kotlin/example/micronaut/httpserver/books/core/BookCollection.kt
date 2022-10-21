@@ -9,7 +9,6 @@ import java.util.*
 class BookCollection(
     private val idGenerator: IdGenerator,
     private val repository: BookRepository,
-    private val eventPublisher: BookEventPublisher
 ) {
 
     private val log = getLogger(javaClass)
@@ -18,9 +17,7 @@ class BookCollection(
 
     fun add(book: Book): BookRecord {
         val record = BookRecord(idGenerator.generateId(), book)
-        val persistedRecord = repository.save(record)
-        eventPublisher.publish(BookRecordCreatedEvent(persistedRecord))
-        return persistedRecord
+        return repository.save(record)
     }
 
     // a method that simply delegates to a less abstract component
@@ -33,7 +30,6 @@ class BookCollection(
         log.info("trying to delete book with ID '$id'")
         if (repository.deleteById(id)) {
             log.debug("book with ID '$id' was deleted")
-            eventPublisher.publish(BookRecordDeletedEvent(id))
         } else {
             log.debug("book with ID '$id' was not deleted")
         }

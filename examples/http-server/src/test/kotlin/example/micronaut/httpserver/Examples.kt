@@ -2,7 +2,6 @@ package example.micronaut.httpserver
 
 import example.micronaut.httpserver.books.core.Book
 import example.micronaut.httpserver.books.core.BookRecord
-import example.micronaut.httpserver.books.enrichment.BookInformation
 import java.time.Instant
 import java.util.UUID
 
@@ -16,12 +15,6 @@ object Examples {
     val book_cleanCode_enriched = Book(
         isbn = "9780132350884",
         title = "Clean Code",
-        description = "Lorem Ipsum ...",
-        authors = listOf("Robert C. Martin", "Dean Wampler"),
-        numberOfPages = 464
-    )
-
-    val additional_cleanCode = BookInformation(
         description = "Lorem Ipsum ...",
         authors = listOf("Robert C. Martin", "Dean Wampler"),
         numberOfPages = 464

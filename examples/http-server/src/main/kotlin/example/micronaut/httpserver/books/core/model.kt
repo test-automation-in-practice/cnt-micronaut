@@ -21,7 +21,3 @@ data class BookRecord(
     val book: Book,
     val timestamp: Instant? = null
 )
-
-interface BookEvent
-data class BookRecordCreatedEvent(val bookRecord: BookRecord) : BookEvent
-data class BookRecordDeletedEvent(val bookRecordId: UUID) : BookEvent
