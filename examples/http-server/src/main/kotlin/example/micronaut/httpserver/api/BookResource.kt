@@ -1,4 +1,4 @@
-package example.micronaut.httpserver.port
+package example.micronaut.httpserver.api
 
 import example.micronaut.httpserver.books.core.BookCollection
 import io.micronaut.http.HttpResponse
