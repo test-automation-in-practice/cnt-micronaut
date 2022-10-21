@@ -1,4 +1,4 @@
-package example.micronaut
+package example.micronaut.httpserver
 
 import io.micronaut.runtime.Micronaut.*
 
