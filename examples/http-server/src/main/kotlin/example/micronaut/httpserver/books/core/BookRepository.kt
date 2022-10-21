@@ -21,6 +21,8 @@ interface BookRepository {
      */
     fun findById(id: UUID): BookRecord?
 
+    fun getAll(): Collection<BookRecord>
+
     /**
      * Deletes the [BookRecord] with the given ID from the underlying data store.
      *

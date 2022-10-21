@@ -17,6 +17,18 @@ import javax.validation.Valid
 @Controller("/default-api/books")
 class BookResource(private val bookCollection: BookCollection) {
 
+    @Get()
+    fun findBooks() : Collection<BookRepresentation> {
+        return bookCollection.getAll().map { BookRepresentation(it) }
+    }
+
+    @Post
+    @Status(HttpStatus.CREATED)
+    fun post(@Valid createBookRequest: CreateBookRequest): HttpResponse<BookRepresentation> {
+        val bookRecord = bookCollection.add(Book(createBookRequest.isbn, createBookRequest.title))
+        return HttpResponse.created(BookRepresentation(bookRecord))
+    }
+
     @Get("/{bookId}")
     fun findBookById(@PathVariable("bookId") bookId: String): HttpResponse<*> {
         val bookRecord = bookCollection.get(UUID.fromString(bookId))
@@ -26,12 +38,5 @@ class BookResource(private val bookCollection: BookCollection) {
         } else {
             HttpResponse.notFound<Void>()
         }
-    }
-
-    @Post
-    @Status(HttpStatus.CREATED)
-    fun post(@Valid createBookRequest: CreateBookRequest): HttpResponse<BookRepresentation> {
-        val bookRecord = bookCollection.add(Book(createBookRequest.isbn, createBookRequest.title))
-        return HttpResponse.created(BookRepresentation(bookRecord))
     }
 }

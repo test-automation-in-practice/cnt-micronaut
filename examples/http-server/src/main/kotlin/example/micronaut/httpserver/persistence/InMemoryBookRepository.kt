@@ -23,6 +23,10 @@ class InMemoryBookRepository(
         return database[id]
     }
 
+    override fun getAll(): Collection<BookRecord> {
+        return database.values
+    }
+
     override fun deleteById(id: UUID): Boolean {
         return database.remove(id) != null
     }

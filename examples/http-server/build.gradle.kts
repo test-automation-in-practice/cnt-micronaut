@@ -23,12 +23,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.micronaut:micronaut-validation")
+
     kaptTest("io.micronaut:micronaut-inject-java")
     testImplementation("io.micronaut.test:micronaut-test-rest-assured")
-
-    runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-
+    testImplementation("org.skyscreamer:jsonassert:1.5.1")
+    testImplementation("io.mockk:mockk")
 }
 
 allOpen {
