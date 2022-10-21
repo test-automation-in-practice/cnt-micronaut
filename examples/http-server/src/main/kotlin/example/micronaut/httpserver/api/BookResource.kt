@@ -17,7 +17,7 @@ import javax.validation.Valid
 @Controller("/default-api/books")
 class BookResource(private val bookCollection: BookCollection) {
 
-    @Get()
+    @Get
     fun findBooks() : Collection<BookRepresentation> {
         return bookCollection.getAll().map { BookRepresentation(it) }
     }
