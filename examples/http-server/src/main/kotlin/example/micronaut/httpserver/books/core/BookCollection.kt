@@ -24,6 +24,8 @@ class BookCollection(
 
     fun get(id: UUID): BookRecord? = repository.findById(id)
 
+    fun getAll(): Collection<BookRecord> = repository.getAll()
+
     // a method whose behaviour is determined by a dependency and that does not return anything
 
     fun delete(id: UUID) {
