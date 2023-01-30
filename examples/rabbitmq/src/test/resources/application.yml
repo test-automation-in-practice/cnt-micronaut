@@ -1,0 +1,5 @@
+test-resources:
+  containers:
+    rabbitmq:
+      image-name: rabbitmq:3.9.27
+
