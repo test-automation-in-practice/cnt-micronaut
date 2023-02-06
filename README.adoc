@@ -12,7 +12,7 @@ scale projects.
 * Technologies
 ** link:examples/caching[Caching]
 ** link:examples/http-server[HTTP-Server]
-** GraphQL (tbd)
+** link:examples/graphql[GraphQL]
 ** Micronaut-Data (tbd)
 ** link:examples/rabbitmq[RabbitMQ]
 ** Kafka (tbd)

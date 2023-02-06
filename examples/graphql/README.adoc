@@ -1,0 +1,6 @@
+= GraphQL
+
+== TODOs
+
+* Do we wanna have an example with Pagination as well?
+* Do we wanna have an example which is a little bit more complex? Like querying data which would normally require two calls in a REST-like API?

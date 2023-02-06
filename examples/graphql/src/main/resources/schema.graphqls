@@ -1,0 +1,30 @@
+scalar Instant
+
+type Mutation {
+    addBook(bookInfo: BookInfo) : BookRecord
+    deleteBookById(id: ID): Boolean
+}
+
+type Query {
+    bookById(id: ID) : BookRecord
+    getAllBooks : [BookRecord]
+}
+
+type BookRecord {
+    id: ID
+    book: Book
+    timestamp: Instant
+}
+
+type Book {
+    isbn: String
+    title: String,
+    description: String
+    authors: [String]
+    numberOfPages: Int
+}
+
+input BookInfo {
+    title: String,
+    isbn: String
+}
