@@ -10,14 +10,14 @@ import jakarta.inject.Singleton
 // This component's job relies on being invoked using Micronaut Framework mechanisms.
 
 @Singleton
-class BookEnricher(
+open class BookEnricher(
     private val bookInformationSource: BookInformationSource,
     private val bookRepository: BookRepository
 ) {
 
     @Async
     @EventListener
-    fun handle(event: BookRecordCreatedEvent) {
+    open fun handle(event: BookRecordCreatedEvent) {
         val record = event.bookRecord
         val book = record.book
         val data = bookInformationSource.getBookInformation(book.isbn)
