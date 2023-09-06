@@ -3,7 +3,7 @@ package example.micronaut.httpserver.books.core
 import example.micronaut.httpserver.IdGenerator
 import jakarta.inject.Singleton
 import org.slf4j.LoggerFactory.getLogger
-import java.util.*
+import java.util.UUID
 
 @Singleton
 class BookCollection(
