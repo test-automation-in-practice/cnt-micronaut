@@ -1,7 +1,5 @@
 package example.micronaut.rabbitmq.business
 
-import example.spring.boot.rabbitmq.business.Book
-import example.spring.boot.rabbitmq.business.BookRecord
 import java.util.*
 
 object Examples {

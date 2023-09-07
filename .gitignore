@@ -2,6 +2,7 @@
 /build/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+.micronaut
 
 ### STS ###
 .apt_generated

@@ -1,8 +1,6 @@
 package example.micronaut.rabbitmq.business
 
-import example.spring.boot.rabbitmq.business.Book
-import example.spring.boot.rabbitmq.business.BookRecord
-import java.util.*
+import java.util.UUID
 import java.util.UUID.randomUUID
 
 sealed class BookEvent {
