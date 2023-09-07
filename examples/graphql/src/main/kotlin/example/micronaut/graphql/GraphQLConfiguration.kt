@@ -5,6 +5,9 @@ import example.micronaut.graphql.datafetcher.DeleteBookByIdDataFetcher
 import example.micronaut.graphql.datafetcher.GetAllBooksDataFetcher
 import example.micronaut.graphql.datafetcher.GetBookRecordByIdDataFetcher
 import graphql.GraphQL
+import graphql.GraphQLContext
+import graphql.execution.CoercedVariables
+import graphql.language.Value
 import graphql.schema.Coercing
 import graphql.schema.GraphQLScalarType
 import graphql.schema.GraphQLSchema
@@ -20,6 +23,7 @@ import org.slf4j.LoggerFactory.getLogger
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.time.Instant
+import java.util.Locale
 
 @Factory
 class GraphQLConfiguration {
@@ -69,18 +73,30 @@ class GraphQLConfiguration {
         GraphQLScalarType.newScalar().name("Instant").description("A custom scalar that handles [java.time.Instant]s.")
             .coercing(object : Coercing<Instant, String> {
 
-                override fun serialize(dataFetcherResult: Any): String {
+                override fun serialize(
+                    dataFetcherResult: Any,
+                    graphQLContext: GraphQLContext,
+                    locale: Locale
+                ): String {
                     return dataFetcherResult.toString()
                 }
 
-                override fun parseValue(input: Any): Instant {
+                override fun parseValue(
+                    input: Any,
+                    graphQLContext: GraphQLContext,
+                    locale: Locale
+                ): Instant {
                     return Instant.parse(input.toString())
                 }
 
-                override fun parseLiteral(input: Any): Instant {
+                override fun parseLiteral(
+                    input: Value<*>,
+                    variables: CoercedVariables,
+                    graphQLContext: GraphQLContext,
+                    locale: Locale
+                ): Instant {
                     return Instant.parse(input.toString())
                 }
-
             })
             .build()
 }

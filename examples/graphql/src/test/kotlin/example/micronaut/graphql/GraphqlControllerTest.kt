@@ -12,6 +12,7 @@ import io.mockk.mockk
 import io.restassured.response.ValidatableResponseOptions
 import io.restassured.specification.RequestSpecification
 import jakarta.inject.Inject
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.skyscreamer.jsonassert.JSONAssert
@@ -26,6 +27,16 @@ class GraphqlControllerTest(
 
     @MockBean(IdGenerator::class)
     fun mockIdGenerator() = mockk<IdGenerator>()
+
+    @AfterEach
+    fun deleteAllBooks() {
+        val allBookIds = repository.getAll().map { it.id }.toSet()
+
+        allBookIds.forEach {
+            repository.deleteById(it)
+        }
+    }
+
 
     @Nested
     inner class Query {
@@ -75,17 +86,10 @@ class GraphqlControllerTest(
             }
 
             @Test
-            fun `returns empty array if none exist`() {
+            fun `returns empty if none exist`() {
                 queryAndExpect(
                     query = """{ getAllBooks { id, timestamp, book { isbn, numberOfPages, authors} } }""",
-                    response =
-                    """
-                        {
-                            "data": {
-                                "getAllBooks": []
-                            }
-                        }
-                    }"""
+                    response = "{}"
                 )
             }
         }
@@ -184,6 +188,7 @@ class GraphqlControllerTest(
                             }
                     """
                 val query = GraphQLQuery(mutation)
+                // TODO each response has an additional element "specification" which contains the expected body????
                 mutateAndExpect(
                     mutation = query,
                     response = """
