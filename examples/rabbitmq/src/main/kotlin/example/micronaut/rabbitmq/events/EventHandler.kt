@@ -10,17 +10,17 @@ import io.micronaut.rabbitmq.annotation.RabbitListener
 import org.slf4j.LoggerFactory.getLogger
 
 @RabbitListener
-class EventHandler {
+open class EventHandler {
 
     private val log = getLogger(javaClass)
 
     @Queue(QUEUE_BOOK_CREATED)
-    fun handleCreatedEvent(event: BookCreatedEvent) {
+    open fun handleCreatedEvent(event: BookCreatedEvent) {
         log.info("Book was created: $event")
     }
 
     @Queue(QUEUE_BOOK_DELETED)
-    fun handleDeletedEvent(event: BookDeletedEvent) {
+    open fun handleDeletedEvent(event: BookDeletedEvent) {
         log.info("Book was deleted: $event")
     }
 }

@@ -1,6 +1,6 @@
-package example.spring.boot.rabbitmq.business
+package example.micronaut.rabbitmq.business
 
-import java.util.*
+import java.util.UUID
 
 data class Book(
     val isbn: String,
