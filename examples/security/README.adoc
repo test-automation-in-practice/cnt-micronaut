@@ -1,0 +1,20 @@
+= Micronaut Security
+
+This project showcases how to test secured Micronaut applications.
+
+We use https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html[Micronaut Security] to do that.
+Micronaut Security offers the possibility to secure your application on the HTTP layer.
+
+E.g. https://spring.io/projects/spring-security[Spring Security] offers additionally to secure you business logic and not just your Web-Controllers (See https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html#page-title[Method Security]).
+If you think the author is mistaken and Micronaut Security offers this as well, do not hesitate to open a bug.
+
+== What do we showcase?
+
+We showcase how to use Basic Authentication, which is enabled by default.
+
+In addition to that we offer JWT based Authentication, too.
+
+We show two different ways to secure your endpoints:
+
+* `io.micronaut.security.annotation.Secured`
+* https://micronaut-projects.github.io/micronaut-security/latest/guide/#interceptUrlMap[Intercept URL map]
