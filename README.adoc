@@ -13,7 +13,7 @@ scale projects.
 ** link:examples/caching[Caching]
 ** link:examples/http-server[HTTP-Server]
 ** link:examples/graphql[GraphQL]
-** Micronaut-Data (tbd)
+** link:examples/data-jpa[Micronaut-Data] using JPA
 ** link:examples/rabbitmq[RabbitMQ]
 ** Kafka (tbd)
 ** Security (tbd)

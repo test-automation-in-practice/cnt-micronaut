@@ -1,0 +1,5 @@
+= Micronaut: Data JDBC
+
+Showcase demonstrating how to test JPA repositories.
+
+This showcase uses https://github.com/micronaut-projects/micronaut-test-resources[Micronaut test resources]. Have a look at `build.gradle.kts` to see an  easy and painless way to automatically provide a database during tests.
