@@ -1,0 +1,31 @@
+micronaut:
+  security:
+    # this triggers the usage of io.micronaut.security.token.bearer.AccessRefreshTokenLoginHandler
+    # That class generates a JWT on successful POST to /login
+    authentication: "bearer"
+    endpoints:
+      login:
+        # enables /login endpoint to be able to request a JWT
+        enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            # this triggers to sign a JWT
+            generator:
+              secret: pleaseChangeThisSecretToSomethingThatProvidesAtLeast256Bits
+              jws-algorithm: HS256
+    intercept-url-map:
+      - pattern: /login
+        http-method: POST
+        access:
+          - isAnonymous()
+      - pattern: /books/url-not-secured
+        access:
+          - isAuthenticated()
+      - pattern: /books/url-not-secured
+        http-method: POST
+        access:
+          - BOOK_CREATOR
+
