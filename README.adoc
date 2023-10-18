@@ -15,5 +15,5 @@ scale projects.
 ** link:examples/graphql[GraphQL]
 ** link:examples/data-jpa[Micronaut-Data] using JPA
 ** link:examples/rabbitmq[RabbitMQ]
+** link:examples/security[Security]
 ** Kafka (tbd)
-** Security (tbd)
