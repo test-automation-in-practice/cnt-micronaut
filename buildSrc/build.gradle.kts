@@ -31,6 +31,6 @@ dependencies {
     implementation ("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
     implementation ("org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}")
     implementation ("com.github.johnrengelman:shadow:8.1.1")
-    implementation ("io.micronaut.gradle:micronaut-gradle-plugin:4.0.3")
+    implementation ("io.micronaut.gradle:micronaut-gradle-plugin:4.3.5")
     implementation("com.google.devtools.ksp:symbol-processing-gradle-plugin:${kotlinVersion}-1.0.19")
 }
