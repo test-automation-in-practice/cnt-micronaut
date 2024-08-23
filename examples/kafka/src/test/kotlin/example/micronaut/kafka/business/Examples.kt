@@ -1,0 +1,17 @@
+package example.spring.boot.kafka.business
+
+import example.micronaut.kafka.business.Book
+import example.micronaut.kafka.business.BookRecord
+import java.util.UUID
+
+object Examples {
+
+    val cleanCode = BookRecord(
+        id = UUID.fromString("b3fc0be8-463e-4875-9629-67921a1e00f4"),
+        book = Book(
+            isbn = "9780132350884",
+            title = "Clean Code"
+        )
+    )
+
+}
