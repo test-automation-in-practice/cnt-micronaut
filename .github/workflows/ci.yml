@@ -16,11 +16,12 @@ jobs:
     needs:
       - basics
       - caching
+      - data-jpa
       - graphql
+      - http-client
       - http-server
       - kafka
       - rabbitmq
-      - data-jpa
       - security
     steps:
       - run: echo "CI-Build completed"
@@ -74,6 +75,23 @@ jobs:
         if: always()
         with:
           name: test-results_graphql
+          path: "**/build/reports/tests"
+  http-client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Up Jdk 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Build
+        run: ./gradlew :examples:http-client:build
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results_http-client
           path: "**/build/reports/tests"
   http-server:
     runs-on: ubuntu-latest
