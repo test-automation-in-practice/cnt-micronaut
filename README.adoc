@@ -11,9 +11,10 @@ scale projects.
 ** link:examples/basics[Basics]
 * Technologies
 ** link:examples/caching[Caching]
-** link:examples/http-server[HTTP-Server]
 ** link:examples/graphql[GraphQL]
+** link:examples/http-client/[HTTP-Client]
+** link:examples/http-server[HTTP-Server]
+** link:examples/kafka/[Kafka]
 ** link:examples/data-jpa[Micronaut-Data] using JPA
 ** link:examples/rabbitmq[RabbitMQ]
 ** link:examples/security[Security]
-** Kafka (tbd)
